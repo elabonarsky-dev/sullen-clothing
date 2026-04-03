@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SEO } from "@/components/SEO";
 import { useAuth } from "@/hooks/useAuth";
 import { useWishlistStore } from "@/stores/wishlistStore";
 import { Button } from "@/components/ui/button";
@@ -472,9 +473,12 @@ export default function AccountPage() {
 
   if (loading || !user) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="w-6 h-6 animate-spin text-primary" />
-      </div>
+      <>
+        <SEO title="My Account" robots="noindex, nofollow" />
+        <div className="min-h-screen bg-background flex items-center justify-center">
+          <Loader2 className="w-6 h-6 animate-spin text-primary" />
+        </div>
+      </>
     );
   }
 
@@ -493,6 +497,7 @@ export default function AccountPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="My Account" robots="noindex, nofollow" />
       <SiteHeader />
       <div className="container max-w-4xl py-16 md:py-24">
         <div className="flex items-center justify-between mb-10">

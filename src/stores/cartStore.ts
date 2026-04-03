@@ -376,11 +376,33 @@ export const useCartStore = create<CartStore>()(
         set({ isSyncing: true });
         try {
           const data = await storefrontApiRequest(CART_QUERY, { id: cartId });
-          if (!data) return;
           const cart = data?.data?.cart;
           if (!cart || cart.totalQuantity === 0) {
+            if (items.length > 0 && !cart) {
+              // Cart ID is stale/expired — attempt to rebuild from local items
+              console.warn('[Cart] Cart not found on Shopify — rebuilding from local items');
+              try {
+                const rebuilt = await createShopifyCartFromItems(
+                  items.map(i => ({ variantId: i.variantId, quantity: i.quantity }))
+                );
+                if (rebuilt) {
+                  set({
+                    cartId: rebuilt.cartId,
+                    checkoutUrl: rebuilt.checkoutUrl,
+                    items: items.map(i => ({
+                      ...i,
+                      lineId: rebuilt.lineIdsByVariant[i.variantId] ?? i.lineId,
+                    })),
+                  });
+                  console.info('[Cart] Successfully rebuilt cart:', rebuilt.cartId);
+                  return;
+                }
+              } catch (rebuildErr) {
+                console.error('[Cart] Failed to rebuild cart from local items:', rebuildErr);
+              }
+            }
             // Cart is empty after checkout — fire GA4 purchase event
-            if (items.length > 0) {
+            if (items.length > 0 && cart?.totalQuantity === 0) {
               const totalValue = items.reduce((sum, i) => sum + (parseFloat(i.price.amount) || 0) * i.quantity, 0);
               const purchaseOrder = {
                 transactionId: cartId,
@@ -400,7 +422,32 @@ export const useCartStore = create<CartStore>()(
             clearCart();
           }
         } catch (error) {
-          console.error('Failed to sync cart:', error);
+          console.error('[Cart] Failed to sync cart:', error);
+          // If the sync itself fails (network, expired cart token, etc.)
+          // and we have local items, try to rebuild
+          if (items.length > 0) {
+            console.warn('[Cart] Attempting cart recovery after sync failure');
+            try {
+              const rebuilt = await createShopifyCartFromItems(
+                items.map(i => ({ variantId: i.variantId, quantity: i.quantity }))
+              );
+              if (rebuilt) {
+                set({
+                  cartId: rebuilt.cartId,
+                  checkoutUrl: rebuilt.checkoutUrl,
+                  items: items.map(i => ({
+                    ...i,
+                    lineId: rebuilt.lineIdsByVariant[i.variantId] ?? i.lineId,
+                  })),
+                });
+                console.info('[Cart] Recovery successful:', rebuilt.cartId);
+                return;
+              }
+            } catch {
+              console.error('[Cart] Recovery failed — clearing cart');
+            }
+            clearCart();
+          }
         } finally {
           set({ isSyncing: false });
         }

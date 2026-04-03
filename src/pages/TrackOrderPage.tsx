@@ -136,7 +136,8 @@ export default function TrackOrderPage() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Track Your Order | Sullen Clothing"
+        title="Track Order"
+        robots="noindex, nofollow"
         description="Track your Sullen Clothing order in real-time. Enter your order number and email to see your shipment status."
         path="/track"
       />

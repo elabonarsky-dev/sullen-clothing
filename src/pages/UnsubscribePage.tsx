@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { SEO } from "@/components/SEO";
 
 type Status = "loading" | "valid" | "already_unsubscribed" | "invalid" | "success" | "error";
 
@@ -60,6 +61,7 @@ export default function UnsubscribePage() {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
+      <SEO title="Unsubscribe" robots="noindex, nofollow" />
       <div className="max-w-md w-full text-center space-y-6">
         <h1 className="font-display text-2xl uppercase tracking-wider text-foreground">
           Email Preferences

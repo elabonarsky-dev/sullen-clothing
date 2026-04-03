@@ -29,6 +29,7 @@ import { BackInStockManager } from "@/components/admin/BackInStockManager";
 import { SurveyInsightsDashboard } from "@/components/admin/SurveyInsightsDashboard";
 import { CartBannerManager } from "@/components/admin/CartBannerManager";
 import { UnboxingCampaignsManager } from "@/components/admin/UnboxingCampaignsManager";
+import { SEO } from "@/components/SEO";
 
 export default function AdminDashboard() {
   const { user, loading, isAdmin, hasAnyRole, hasRole } = useAuth();
@@ -106,9 +107,12 @@ export default function AdminDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <p className="text-muted-foreground font-body">Loading...</p>
-      </div>
+      <>
+        <SEO title="Admin Dashboard" robots="noindex, nofollow" />
+        <div className="min-h-screen bg-background flex items-center justify-center">
+          <p className="text-muted-foreground font-body">Loading...</p>
+        </div>
+      </>
     );
   }
 
@@ -182,6 +186,7 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Admin Dashboard" robots="noindex, nofollow" />
       {/* Header */}
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="flex items-center justify-between h-16 px-6">

@@ -90,7 +90,14 @@ function ScrollToTop() {
   return null;
 }
 
-/** Fires GA4 + Shopify + Meta page_view on every route change */
+/**
+ * Fires GA4 + Shopify + Meta page_view on every route change.
+ *
+ * TODO (pre-launch): Once DNS cutover to www.sullenclothing.com is live,
+ * activate Prerender.io via the Cloudflare Worker so that bot traffic
+ * receives fully-rendered HTML with correct meta/OG/canonical tags.
+ * The SEO component already outputs correct canonicals for the public host.
+ */
 function RouteTracker() {
   const { pathname } = useLocation();
   useEffect(() => {

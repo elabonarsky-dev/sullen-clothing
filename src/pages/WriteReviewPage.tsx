@@ -179,8 +179,9 @@ export default function WriteReviewPage() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
+        title="Write Review"
+        robots="noindex, nofollow"
         path={`/write-review/${token}`}
-        title="Write a Review | Sullen Clothing"
         description="Share your experience with Sullen Clothing products"
       />
       <SiteHeader />

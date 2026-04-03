@@ -65,9 +65,14 @@ export default function ProductPage() {
     queryKey: ["product", handle],
     queryFn: async () => {
       const res = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
-      return res?.data?.product ?? null;
+      const p = res?.data?.product ?? null;
+      if (!p) {
+        console.warn(`[PDP] Product not found for handle: "${handle}"`);
+      }
+      return p;
     },
     enabled: !!handle,
+    retry: 1,
   });
 
   // Determine review group from product's collections

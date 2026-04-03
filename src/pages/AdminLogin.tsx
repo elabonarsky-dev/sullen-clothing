@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Mail, Loader2, CheckCircle2 } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -88,14 +89,18 @@ export default function AdminLogin() {
 
   if (checkingSession) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
-      </div>
+      <>
+        <SEO title="Admin Login" robots="noindex, nofollow" />
+        <div className="min-h-screen bg-background flex items-center justify-center">
+          <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+        </div>
+      </>
     );
   }
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
+      <SEO title="Admin Login" robots="noindex, nofollow" />
       <div className="w-full max-w-sm space-y-8">
         <div className="text-center">
           <h1 className="font-display text-3xl uppercase tracking-wider text-foreground">

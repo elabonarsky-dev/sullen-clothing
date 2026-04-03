@@ -183,8 +183,28 @@ const mobileNavItems: MobileNavItem[] = [
     href: "/collections/men",
     categories: [
       { label: "Shop All", href: "/collections/men" },
-      { label: "Tees", href: "/collections/tees" },
-      { label: "Tops", href: "/collections/tops" },
+      {
+        label: "Tees",
+        href: "/collections/tees",
+        subs: [
+          { label: "Standard Tees", href: "/collections/standard-tees" },
+          { label: "Premium Tees", href: "/collections/premium" },
+          { label: "1 Ton Oversized", href: "/collections/1-ton-tees" },
+          { label: "The Solids", href: "/collections/solids" },
+          { label: "Long Sleeves", href: "/collections/long-sleeves" },
+          { label: "Tanks", href: "/collections/tanks" },
+        ],
+      },
+      {
+        label: "Tops",
+        href: "/collections/tops",
+        subs: [
+          { label: "Sweatshirts", href: "/collections/fleece" },
+          { label: "Flannels", href: "/collections/flannels" },
+          { label: "Wovens", href: "/collections/wovens" },
+          { label: "Polos", href: "/collections/polos" },
+        ],
+      },
       { label: "Outerwear", href: "/collections/jackets" },
       {
         label: "Bottoms",

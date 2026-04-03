@@ -12,6 +12,13 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /account
+Disallow: /account/
+Disallow: /reset-password
+Disallow: /write-review/
+Disallow: /unsubscribe
+Disallow: /returns
 
 Sitemap: https://www.sullenclothing.com/sitemap.xml
-Sitemap: https://smmeufktnfgefknaisrr.supabase.co/functions/v1/dynamic-sitemap

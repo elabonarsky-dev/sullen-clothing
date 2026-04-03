@@ -73,10 +73,13 @@ export async function storefrontApiRequest(query: string, variables: Record<stri
   }
 
   const data = await response.json();
-  // Only throw if there are errors AND no usable data was returned
-  // Shopify can return partial errors alongside otherwise valid data
-  if (data.errors && !data.data) {
-    throw new Error(`Error calling Shopify: ${data.errors.map((e: { message: string }) => e.message).join(', ')}`);
+
+  if (data.errors) {
+    if (!data.data) {
+      throw new Error(`Error calling Shopify: ${data.errors.map((e: { message: string }) => e.message).join(', ')}`);
+    }
+    // Partial errors — log for debugging but return usable data
+    console.warn('[Shopify] Partial errors in response:', data.errors.map((e: { message: string }) => e.message));
   }
   return data;
 }

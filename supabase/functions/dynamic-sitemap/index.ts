@@ -210,10 +210,10 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Artist profiles
+    // Artist profiles (route is /artist/:slug, not /artists/)
     for (const artist of artists) {
       entries.push(
-        urlEntry(`${SITE_URL}/artists/${artist.slug}`, artist.updatedAt, "monthly", "0.6")
+        urlEntry(`${SITE_URL}/artist/${artist.slug}`, artist.updatedAt, "monthly", "0.6")
       );
     }
 

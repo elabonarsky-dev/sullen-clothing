@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://www.sullenclothing.com";
+export const SITE_URL = "https://www.sullenclothing.com";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 interface ProductJsonLd {
@@ -29,8 +29,16 @@ interface SEOProps {
   path?: string;
   image?: string;
   type?: string;
+  /** Controls the meta robots directive. Defaults to "index, follow". */
+  robots?: string;
   product?: ProductJsonLd;
   breadcrumbs?: BreadcrumbItem[];
+}
+
+/** Strip query parameters from a path to produce a clean canonical URL. */
+function stripQueryParams(path: string): string {
+  const qIdx = path.indexOf("?");
+  return qIdx === -1 ? path : path.slice(0, qIdx);
 }
 
 export function SEO({
@@ -39,13 +47,15 @@ export function SEO({
   path = "/",
   image = DEFAULT_OG_IMAGE,
   type = "website",
+  robots = "index, follow",
   product,
   breadcrumbs,
 }: SEOProps) {
   const fullTitle = title
     ? `${title} | Sullen Clothing`
     : "Sullen Clothing | Tattoo-Inspired Streetwear & Artist Collaborations";
-  const url = `${SITE_URL}${path}`;
+  const canonicalPath = stripQueryParams(path);
+  const url = `${SITE_URL}${canonicalPath}`;
 
   const productJsonLd = product
     ? {
@@ -104,7 +114,9 @@ export function SEO({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
+      <meta name="robots" content={robots} />
 
+      <meta property="og:site_name" content="Sullen Clothing" />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />

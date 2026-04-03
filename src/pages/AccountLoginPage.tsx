@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
@@ -75,14 +76,18 @@ export default function AccountLoginPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="w-6 h-6 animate-spin text-primary" />
-      </div>
+      <>
+        <SEO title="Account Login" robots="noindex, nofollow" />
+        <div className="min-h-screen bg-background flex items-center justify-center">
+          <Loader2 className="w-6 h-6 animate-spin text-primary" />
+        </div>
+      </>
     );
   }
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Account Login" robots="noindex, nofollow" />
       <SiteHeader />
       <div className="container max-w-md pt-6 pb-10 md:py-20 px-5">
         {/* New site notice */}

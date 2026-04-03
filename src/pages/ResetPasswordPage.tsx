@@ -69,7 +69,7 @@ export default function ResetPasswordPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO title="Reset Password | Sullen Clothing" description="Set a new password for your Sullen account." path="/reset-password" />
+      <SEO title="Reset Password" robots="noindex, nofollow" />
       <SiteHeader />
       <motion.div
         initial={{ opacity: 0, y: 20 }}

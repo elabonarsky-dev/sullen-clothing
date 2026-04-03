@@ -28,7 +28,7 @@ export default function WishlistPage() {
 
   return (
     <>
-      <SEO title="Wishlist — Sullen Clothing" description="Your saved items" />
+      <SEO title="Wishlist" robots="noindex, nofollow" />
       <SiteHeader />
 
       <main className="min-h-screen bg-background pt-4 pb-20">

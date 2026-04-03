@@ -24,6 +24,7 @@ import brooksBanner from "@/assets/brooks-banner.jpg";
 import letterheadsBg from "@/assets/letterheads-background.jpg";
 import sullenLogo from "@/assets/sullen-logo.png";
 import artistSeriesLogo from "@/assets/artist-series-logo.png";
+import { COLLECTION_HANDLE_ALIASES } from "@/lib/collectionAliases";
 
 /* ─── Sort options ─── */
 const sortOptions = [
@@ -1035,23 +1036,9 @@ function BundleBar({
 /* ─── Main page ─── */
 export default function CollectionPage() {
   const { handle: rawHandle, subhandle } = useParams<{ handle: string; subhandle?: string }>();
-   // Map friendly route handles to Shopify collection handles
-  const handleAliases: Record<string, string> = {
-    "jewelry": "heavy-metals",
-    "lanyards": "lanyards-1",
-    "sunglasses": "black-fly-sunglasses",
-    // Nested hat sub-collections → actual Shopify handles
-    "hats-letterheads": "letterheads",
-    "hats-artist-series": "artist-series",
-    "hats-staples": "hat-staples",
-    // Youth nested routes
-    // "youth-tees" uses the same handle on Shopify
-    "timeless": "sullen-logo-tees",
-    "solids": "the-solids",
-  };
   // For nested routes like /collections/hats/staples, combine into "hats-staples" for alias lookup
   const combinedHandle = subhandle ? `${rawHandle}-${subhandle}` : rawHandle;
-  const handle = handleAliases[combinedHandle || ""] || combinedHandle;
+  const handle = COLLECTION_HANDLE_ALIASES[combinedHandle || ""] || combinedHandle;
 
 
   const { hasVideo } = useProductVideos();
@@ -1089,7 +1076,10 @@ export default function CollectionPage() {
       });
       const collection = res?.data?.collection;
 
-      // "tops" is a virtual collection merging fleece, flannels, wovens, and jackets
+      // "tops" is a virtual collection merging fleece, flannels, wovens, and jackets.
+      // Accessed from the Men's nav, so women's-tagged products are filtered out.
+      // If this remains an issue, the Shopify collection rules for the sub-collections
+      // should be updated to exclude women's products.
       if (handle === "tops" && !collection) {
         const subHandles = ["fleece", "flannels", "wovens", "jackets"];
         const results = await Promise.all(
@@ -1103,12 +1093,17 @@ export default function CollectionPage() {
           )
         );
         const allEdges = results.flatMap((r) => r?.data?.collection?.products?.edges || []);
-        // Deduplicate by product id
         const seen = new Set<string>();
         const uniqueEdges = allEdges.filter((e: any) => {
-          if (seen.has(e.node.id)) return false;
+          if (!e?.node?.id || seen.has(e.node.id)) return false;
           seen.add(e.node.id);
-          return true;
+          const tags = (e.node.tags || []).map((t: string) => t.toLowerCase());
+          const title = (e.node.title || "").toLowerCase();
+          const type = (e.node.productType || "").toLowerCase();
+          const isWomens = tags.some((t: string) => t === "womens" || t === "women's" || t === "women")
+            || type.includes("women")
+            || /\bwomen'?s?\b/.test(title);
+          return !isWomens;
         });
         return {
           id: "tops",
@@ -1199,9 +1194,13 @@ export default function CollectionPage() {
         };
       }
 
-      return collection;
+      if (!collection) {
+        console.warn(`[Collection] No collection found for handle: "${handle}"`);
+      }
+      return collection ?? null;
     },
     enabled: !!handle,
+    retry: 1,
   });
 
   // Reset accumulated products when initial data changes (new collection or sort)
@@ -1247,8 +1246,15 @@ export default function CollectionPage() {
     }
   }, [endCursor, handle, sort.key, sort.reverse, isLoadingMore]);
 
-  // Filter out products that are completely unavailable (unpublished / all variants sold out)
-  const rawProducts = allProducts.filter((p: any) => p.availableForSale !== false);
+  // Filter out products that are invalid or completely unavailable
+  const rawProducts = allProducts.filter((p: any) => {
+    if (!p || !p.id || !p.handle) {
+      console.warn('[Collection] Skipping product with missing id/handle:', p?.title);
+      return false;
+    }
+    if (p.availableForSale === false) return false;
+    return true;
+  });
   const urlHandle = subhandle ? `${rawHandle}-${subhandle}` : rawHandle;
 
   // Artist Series tees: filter out non-tee products
@@ -1817,14 +1823,22 @@ export default function CollectionPage() {
               </div>
             ))}
           </div>
-        ) : error ? (
+        ) : error || (!isLoading && !data) ? (
           <div className="text-center py-20">
             <p className="font-display text-lg uppercase tracking-wider text-foreground mb-2">
-              Something went wrong
+              {!data ? "Collection Not Found" : "Something went wrong"}
             </p>
             <p className="text-sm text-muted-foreground font-body">
-              Unable to load this collection. Please try again.
+              {!data
+                ? "This collection may have been removed or is no longer available."
+                : "Unable to load this collection. Please try again."}
             </p>
+            <Link
+              to="/collections"
+              className="inline-flex items-center gap-2 mt-4 text-xs font-display uppercase tracking-[0.2em] text-primary hover:text-primary/80 transition-colors"
+            >
+              Browse Collections
+            </Link>
           </div>
         ) : filteredProducts.length === 0 ? (
           <div className="text-center py-20">
