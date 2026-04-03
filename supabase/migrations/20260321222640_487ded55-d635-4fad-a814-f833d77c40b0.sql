@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Public can view approved reviews (restricted via view)" ON public.reviews;

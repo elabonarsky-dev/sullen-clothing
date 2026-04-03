@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX IF NOT EXISTS review_request_tokens_order_id_unique ON public.review_request_tokens (order_id);

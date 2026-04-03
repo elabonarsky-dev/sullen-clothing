@@ -1,0 +1,1 @@
+ALTER TABLE public.customer_surveys ADD COLUMN admin_notes text DEFAULT null;

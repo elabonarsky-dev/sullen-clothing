@@ -1,0 +1,10 @@
+UPDATE artist_profiles SET stored_portrait_url = 'https://smmeufktnfgefknaisrr.supabase.co/storage/v1/object/public/artist-portraits/andy-engel.jpg' WHERE slug = 'andy-engel';
+UPDATE artist_profiles SET stored_portrait_url = 'https://smmeufktnfgefknaisrr.supabase.co/storage/v1/object/public/artist-portraits/aspek.jpg' WHERE slug = 'aspek';
+UPDATE artist_profiles SET stored_portrait_url = 'https://smmeufktnfgefknaisrr.supabase.co/storage/v1/object/public/artist-portraits/bob-tyrrell.jpg' WHERE slug = 'bob-tyrrell';
+UPDATE artist_profiles SET stored_portrait_url = 'https://smmeufktnfgefknaisrr.supabase.co/storage/v1/object/public/artist-portraits/bola-tattoo.jpg' WHERE slug = 'bola-tattoo';
+UPDATE artist_profiles SET stored_portrait_url = 'https://smmeufktnfgefknaisrr.supabase.co/storage/v1/object/public/artist-portraits/clint-cummings.jpg' WHERE slug = 'clint-cummings';
+UPDATE artist_profiles SET stored_portrait_url = 'https://smmeufktnfgefknaisrr.supabase.co/storage/v1/object/public/artist-portraits/david-garcia.jpg' WHERE slug = 'david-garcia';
+UPDATE artist_profiles SET stored_portrait_url = 'https://smmeufktnfgefknaisrr.supabase.co/storage/v1/object/public/artist-portraits/el-pichie-letras.jpg' WHERE slug = 'el-pichie-letras';
+UPDATE artist_profiles SET stored_portrait_url = 'https://smmeufktnfgefknaisrr.supabase.co/storage/v1/object/public/artist-portraits/freddy-negrete.jpg' WHERE slug = 'freddy-negrete';
+UPDATE artist_profiles SET stored_portrait_url = 'https://smmeufktnfgefknaisrr.supabase.co/storage/v1/object/public/artist-portraits/jamie-schene.jpg' WHERE slug = 'jamie-schene';
+UPDATE artist_profiles SET stored_portrait_url = 'https://smmeufktnfgefknaisrr.supabase.co/storage/v1/object/public/artist-portraits/joon.jpg' WHERE slug = 'joon';

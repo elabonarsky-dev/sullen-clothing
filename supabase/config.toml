@@ -1,0 +1,47 @@
+project_id = "smmeufktnfgefknaisrr"
+
+[functions]
+  [functions.analytics-trends]
+    verify_jwt = false
+  [functions.artist-recommend]
+    verify_jwt = false
+  [functions.attentive-drop-notify]
+    verify_jwt = false
+  [functions.attentive-vault-sync]
+    verify_jwt = false
+  [functions.auth-email-hook]
+    verify_jwt = false
+  [functions.backfill-review-groups]
+    verify_jwt = false
+  [functions.handle-email-suppression]
+    verify_jwt = false
+  [functions.handle-email-unsubscribe]
+    verify_jwt = false
+  [functions.import-okendo-points]
+    verify_jwt = false
+  [functions.import-okendo-reviews]
+    verify_jwt = false
+  [functions.okendo-reviews]
+    verify_jwt = false
+  [functions.preview-transactional-email]
+    verify_jwt = false
+  [functions.process-email-queue]
+    verify_jwt = true
+  [functions.redeem-skulls]
+    verify_jwt = false
+  [functions.schedule-review-request]
+    verify_jwt = false
+  [functions.send-transactional-email]
+    verify_jwt = false
+  [functions.shopify-order-webhook]
+    verify_jwt = false
+  [functions.submit-token-review]
+    verify_jwt = false
+  [functions.sync-artist-stories]
+    verify_jwt = false
+  [functions.ga4-analytics]
+    verify_jwt = false
+  [functions.meta-capi]
+    verify_jwt = false
+  [functions.shopify-oauth-callback]
+    verify_jwt = false

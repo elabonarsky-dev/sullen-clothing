@@ -1,0 +1,1 @@
+ALTER TABLE public.capsule_drops ADD COLUMN vault_early_access boolean NOT NULL DEFAULT false;

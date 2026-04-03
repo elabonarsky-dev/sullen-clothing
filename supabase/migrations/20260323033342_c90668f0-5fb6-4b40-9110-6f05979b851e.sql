@@ -1,0 +1,1 @@
+UPDATE artist_profiles SET slug = 'a-d-pancho' WHERE slug = 'a-d-poncho';

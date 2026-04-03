@@ -1,0 +1,1 @@
+ALTER TABLE public.artist_profiles ADD COLUMN IF NOT EXISTS long_bio text;

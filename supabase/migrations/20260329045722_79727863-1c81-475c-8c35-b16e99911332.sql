@@ -1,0 +1,1 @@
+ALTER TABLE public.review_request_tokens ADD COLUMN send_after timestamptz;

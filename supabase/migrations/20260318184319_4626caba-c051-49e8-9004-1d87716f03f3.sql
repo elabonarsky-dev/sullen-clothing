@@ -1,0 +1,1 @@
+ALTER TABLE public.marketing_images ADD COLUMN mobile_image_url text;

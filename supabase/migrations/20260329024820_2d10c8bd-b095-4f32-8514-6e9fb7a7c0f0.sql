@@ -1,0 +1,1 @@
+UPDATE public.order_history SET financial_status = 'cancelled', updated_at = now() WHERE order_id IN ('6758298058851', '6758293930083', '6756480581731', '6756278370403', '6754586591331') AND financial_status IN ('refunded', 'voided');

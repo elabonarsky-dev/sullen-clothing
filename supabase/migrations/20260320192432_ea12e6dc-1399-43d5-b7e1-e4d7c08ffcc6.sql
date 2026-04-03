@@ -1,0 +1,1 @@
+DROP POLICY "Anyone can view by token" ON public.review_request_tokens;

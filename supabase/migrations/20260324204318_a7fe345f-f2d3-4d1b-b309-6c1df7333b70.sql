@@ -1,0 +1,1 @@
+UPDATE capsule_drops SET drop_date = (now() + interval '30 seconds')::timestamptz WHERE slug = 'march-artist-series';

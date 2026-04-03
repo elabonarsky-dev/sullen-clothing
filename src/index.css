@@ -1,0 +1,515 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'Hudson NY Serif';
+  src: url('/fonts/hudson_ny_serif-webfont.woff2') format('woff2'),
+       url('/fonts/hudson_ny_serif-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (max-width: 768px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 5%;
+    --foreground: 40 20% 92%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 38 90% 52%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 40 20% 85%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 38 90% 52%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 38 90% 52%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 38 90% 52%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 40 20% 92%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 38 90% 52%;
+
+    /* Custom brand tokens */
+    --gold: 38 90% 52%;
+    --gold-dim: 38 60% 35%;
+    --bone: 40 20% 92%;
+    --ink: 0 0% 5%;
+    --charcoal: 0 0% 12%;
+    --smoke: 0 0% 55%;
+  }
+
+  .light {
+    --background: 40 20% 96%;
+    --foreground: 0 0% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+
+    --primary: 38 90% 46%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 15% 90%;
+    --secondary-foreground: 0 0% 25%;
+
+    --muted: 40 10% 92%;
+    --muted-foreground: 0 0% 42%;
+
+    --accent: 38 90% 46%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 10% 85%;
+    --input: 40 10% 85%;
+    --ring: 38 90% 46%;
+
+    --sidebar-background: 40 15% 94%;
+    --sidebar-foreground: 0 0% 12%;
+    --sidebar-primary: 38 90% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 15% 90%;
+    --sidebar-accent-foreground: 0 0% 12%;
+    --sidebar-border: 40 10% 85%;
+    --sidebar-ring: 38 90% 46%;
+
+    /* Custom brand tokens — light */
+    --gold: 38 90% 46%;
+    --gold-dim: 38 50% 40%;
+    --bone: 0 0% 12%;
+    --ink: 40 20% 96%;
+    --charcoal: 40 10% 92%;
+    --smoke: 0 0% 42%;
+  }
+
+  .halloween {
+    --background: 270 10% 4%;
+    --foreground: 120 100% 75%;
+
+    --card: 270 15% 8%;
+    --card-foreground: 120 80% 70%;
+
+    --popover: 270 15% 8%;
+    --popover-foreground: 120 80% 70%;
+
+    --primary: 275 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 20% 12%;
+    --secondary-foreground: 275 60% 80%;
+
+    --muted: 270 15% 10%;
+    --muted-foreground: 270 10% 50%;
+
+    --accent: 120 100% 50%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 275 30% 20%;
+    --input: 275 30% 20%;
+    --ring: 275 100% 60%;
+
+    --sidebar-background: 270 15% 6%;
+    --sidebar-foreground: 120 80% 70%;
+    --sidebar-primary: 275 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 20% 12%;
+    --sidebar-accent-foreground: 120 80% 70%;
+    --sidebar-border: 275 30% 20%;
+    --sidebar-ring: 275 100% 60%;
+
+    /* Halloween brand tokens */
+    --gold: 275 100% 60%;
+    --gold-dim: 275 60% 40%;
+    --bone: 120 100% 75%;
+    --ink: 270 10% 4%;
+    --charcoal: 270 15% 10%;
+    --smoke: 270 10% 50%;
+  }
+
+  .blaq-friday {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 80%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 78%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 78%;
+
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 3%;
+
+    --secondary: 0 0% 9%;
+    --secondary-foreground: 0 0% 65%;
+
+    --muted: 0 0% 7%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 90%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 0 0% 60%;
+
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 0 0% 78%;
+    --sidebar-primary: 0 0% 95%;
+    --sidebar-primary-foreground: 0 0% 3%;
+    --sidebar-accent: 0 0% 9%;
+    --sidebar-accent-foreground: 0 0% 78%;
+    --sidebar-border: 0 0% 12%;
+    --sidebar-ring: 0 0% 60%;
+
+    /* Blaq Friday brand tokens */
+    --gold: 0 0% 95%;
+    --gold-dim: 0 0% 35%;
+    --bone: 0 0% 80%;
+    --ink: 0 0% 3%;
+    --charcoal: 0 0% 7%;
+    --smoke: 0 0% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 20px;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  h1 {
+    @apply font-hudson;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(45 100% 70%), hsl(var(--primary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-dark {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--card)) 100%);
+  }
+
+  .bg-gradient-card {
+    background: linear-gradient(145deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
+  }
+
+  .border-gold {
+    border-color: hsl(var(--primary) / 0.3);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.15);
+  }
+
+  /* Halloween-specific utilities — only visible when .halloween is active */
+  .halloween .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(275 100% 60%), hsl(120 100% 50%), hsl(275 100% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .halloween .glow-gold {
+    box-shadow: 0 0 30px hsl(275 100% 60% / 0.3), 0 0 60px hsl(120 100% 50% / 0.1);
+  }
+
+  /* Halloween collection card purple glow border */
+  .halloween .aspect-\[4\/5\].rounded-lg {
+    border: 2px solid hsl(275 100% 60% / 0.7);
+    box-shadow: 0 0 14px hsl(275 100% 60% / 0.4), 0 0 30px hsl(275 100% 60% / 0.15), inset 0 0 10px hsl(275 100% 60% / 0.1);
+  }
+
+  .halloween h1,
+  .halloween .font-hudson,
+  .halloween .font-display {
+    font-family: 'Creepster', cursive !important;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 20px hsl(120 100% 50% / 0.3), 0 0 40px hsl(275 100% 60% / 0.2);
+  }
+
+  /* Blaq Friday utilities — monochrome sleek */
+  .blaq-friday .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(0 0% 60%), hsl(0 0% 95%), hsl(0 0% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .blaq-friday .glow-gold {
+    box-shadow: 0 0 40px hsl(0 0% 100% / 0.05), 0 0 80px hsl(0 0% 100% / 0.02);
+  }
+
+  .blaq-friday h1,
+  .blaq-friday .font-hudson {
+    text-shadow: 0 0 30px hsl(0 0% 100% / 0.06);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Cherubs capsule cloud animations */
+@keyframes cloud-drift-1 {
+  0% { transform: translateX(-120%) translateY(0); }
+  50% { transform: translateX(50vw) translateY(-15px); }
+  100% { transform: translateX(115vw) translateY(0); }
+}
+@keyframes cloud-drift-2 {
+  0% { transform: translateX(115vw) translateY(0); }
+  50% { transform: translateX(30vw) translateY(12px); }
+  100% { transform: translateX(-120%) translateY(0); }
+}
+@keyframes cloud-drift-3 {
+  0% { transform: translateX(-100%) translateY(0) scale(0.9); }
+  50% { transform: translateX(55vw) translateY(-20px) scale(0.95); }
+  100% { transform: translateX(120vw) translateY(0) scale(0.9); }
+}
+@keyframes cloud-drift-4 {
+  0% { transform: translateX(125vw) translateY(0) scale(0.85); }
+  50% { transform: translateX(20vw) translateY(18px) scale(0.9); }
+  100% { transform: translateX(-110%) translateY(0) scale(0.85); }
+}
+@keyframes cloud-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.75; }
+}
+
+.cloud {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(10px);
+  pointer-events: none;
+}
+.cloud-1 {
+  width: 500px; height: 160px;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.5) 35%, transparent 60%);
+  top: 5%; animation: cloud-drift-1 60s linear infinite, cloud-pulse 10s ease-in-out infinite;
+}
+.cloud-2 {
+  width: 600px; height: 180px;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.45) 35%, transparent 60%);
+  top: 30%; animation: cloud-drift-2 75s linear infinite 5s, cloud-pulse 12s ease-in-out infinite 3s;
+}
+.cloud-3 {
+  width: 420px; height: 140px;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 40%, transparent 60%);
+  top: 55%; animation: cloud-drift-3 65s linear infinite 12s, cloud-pulse 9s ease-in-out infinite 1s;
+}
+.cloud-4 {
+  width: 550px; height: 170px;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.4) 35%, transparent 60%);
+  top: 15%; animation: cloud-drift-4 80s linear infinite 8s, cloud-pulse 14s ease-in-out infinite 5s;
+}
+.cloud-5 {
+  width: 380px; height: 130px;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 35%, transparent 60%);
+  top: 45%; animation: cloud-drift-1 90s linear infinite 20s, cloud-pulse 11s ease-in-out infinite 2s;
+}
+
+/* Halloween bat flight animation */
+@keyframes bat-fly {
+  0% { left: -60px; }
+  100% { left: calc(100vw + 60px); }
+}
+
+/* Bat wing flap */
+.bat-wings {
+  animation: bat-flap 0.4s ease-in-out infinite alternate;
+}
+@keyframes bat-flap {
+  0% { transform: scaleY(1); }
+  100% { transform: scaleY(0.6) scaleX(0.85); }
+}
+
+/* Halloween fog drift */
+@keyframes fog-drift-left {
+  0%   { transform: translateX(-10%) translateY(0); opacity: 0.5; }
+  50%  { transform: translateX(5%) translateY(-8px); opacity: 0.8; }
+  100% { transform: translateX(-10%) translateY(0); opacity: 0.5; }
+}
+@keyframes fog-drift-right {
+  0%   { transform: translateX(10%) translateY(0); opacity: 0.4; }
+  50%  { transform: translateX(-5%) translateY(6px); opacity: 0.7; }
+  100% { transform: translateX(10%) translateY(0); opacity: 0.4; }
+}
+@keyframes fog-rise {
+  0%   { transform: translateY(0) scaleX(1); opacity: 0.6; }
+  50%  { transform: translateY(-20px) scaleX(1.05); opacity: 0.9; }
+  100% { transform: translateY(0) scaleX(1); opacity: 0.6; }
+}
+
+/* Jack-o-lantern flickering glow */
+.jol-glow {
+  fill: hsl(40 100% 50%);
+}
+
+/* Halloween: make page background transparent so atmosphere shows through */
+.halloween .min-h-screen.bg-background {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure product cards and sections sit above the atmosphere */
+.halloween section,
+.halloween [class*="grid"],
+.halloween header,
+.halloween footer,
+.halloween nav,
+.halloween main,
+.blaq-friday section,
+.blaq-friday [class*="grid"],
+.blaq-friday header,
+.blaq-friday footer,
+.blaq-friday nav,
+.blaq-friday main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Blaq Friday: transparent bg so atmosphere shows */
+.blaq-friday .min-h-screen.bg-background {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+/* Blaq Friday animations */
+@keyframes blaq-shimmer {
+  0%   { background-position: -200% -200%; }
+  50%  { background-position: 200% 200%; }
+  100% { background-position: -200% -200%; }
+}
+
+@keyframes blaq-float {
+  0%   { transform: translateY(0) scale(1); opacity: 0.15; }
+  50%  { transform: translateY(-20px) scale(1.5); opacity: 0.3; }
+  100% { transform: translateY(0) scale(1); opacity: 0.15; }
+}
+
+
+
+/* Print-friendly: stencil pages */
+@media print {
+  header, footer, nav,
+  .announcement-bar,
+  .site-header,
+  .site-footer,
+  .newsletter-section,
+  button, a[download] {
+    display: none !important;
+  }
+
+  body, main {
+    background: white !important;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-stencil {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-stencil img {
+    width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  .print-hide {
+    display: none !important;
+  }
+}
+
+/* UGC marquee scroll */
+@keyframes ugc-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Vault countdown urgency pulse */
+@keyframes vaultPulse {
+  0%, 100% { box-shadow: inset 0 2px 8px rgba(0,0,0,0.95), 0 0 10px rgba(0,0,0,0.5), 0 0 12px rgba(232,168,0,0.15); }
+  50% { box-shadow: inset 0 2px 8px rgba(0,0,0,0.95), 0 0 10px rgba(0,0,0,0.5), 0 0 28px rgba(232,168,0,0.45), 0 0 60px rgba(232,168,0,0.15); }
+}
+
+/* EqualWeb accessibility button – pin to bottom-right on mobile */
+@media (max-width: 768px) {
+  #INDmenu-btn,
+  .INDmenu-btn-wrap {
+    bottom: 8% !important;
+    top: auto !important;
+    right: 0 !important;
+  }
+}

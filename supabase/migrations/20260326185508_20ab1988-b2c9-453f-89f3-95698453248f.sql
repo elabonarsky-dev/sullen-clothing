@@ -1,0 +1,1 @@
+ALTER TYPE public.marketing_image_slot ADD VALUE IF NOT EXISTS 'cart_banner';

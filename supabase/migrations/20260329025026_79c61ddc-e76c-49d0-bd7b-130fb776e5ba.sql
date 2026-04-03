@@ -1,0 +1,1 @@
+UPDATE public.order_history SET financial_status = 'cancelled', updated_at = now() WHERE order_id IN ('6758304907363', '6758316572771');

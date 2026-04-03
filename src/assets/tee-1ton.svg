@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 25 290 240">
+  <defs>
+    <style>
+      .st0, .st1, .st2, .st3, .st4 { stroke-linecap: round; stroke-linejoin: round; }
+      .st0, .st1, .st2, .st3, .st4, .st5 { stroke: #999; }
+      .st0, .st2, .st3, .st4, .st5 { fill: none; }
+      .st0, .st2, .st4 { stroke-width: .5px; }
+      .st1 { stroke-width: 2px; }
+      .st2 { stroke-dasharray: 2 2; }
+      .st4 { stroke-dasharray: 2 2; }
+      .st5 { stroke-miterlimit: 10; }
+    </style>
+  </defs>
+  <g>
+    <polyline class="st5" points="65.3 119.6 65.3 246.8 221 246.8 221 119.6"/>
+    <path class="st5" d="M68.7,50.7l-56.7,26.5,20.6,43.2,32.7-.7c23.9-19.3,3.4-69,3.4-69l52.9-15.9s2.1,28.6,25.3,28.2,25.1-27.5,25.1-27.5l51.2,17.9s-14.4,48-2.1,66.3l32.7.7,20.6-43.2-51.3-23.9"/>
+    <path class="st5" d="M49.7,133.2"/>
+    <path class="st5" d="M34.3,152.8"/>
+    <g>
+      <line class="st2" x1="65.2" y1="240.1" x2="66.2" y2="240.1"/>
+      <line class="st4" x1="68.1" y1="240.1" x2="218.8" y2="240.1"/>
+      <line class="st2" x1="219.8" y1="240.1" x2="220.8" y2="240.1"/>
+    </g>
+    <g>
+      <line class="st2" x1="65.2" y1="238.4" x2="66.2" y2="238.4"/>
+      <line class="st4" x1="68.1" y1="238.4" x2="218.8" y2="238.4"/>
+      <line class="st2" x1="219.8" y1="238.4" x2="220.8" y2="238.4"/>
+    </g>
+    <line class="st4" x1="38.5" y1="120.2" x2="17.6" y2="74.4"/>
+    <line class="st4" x1="40.1" y1="120.2" x2="19" y2="73.8"/>
+    <line class="st4" x1="247.7" y1="120" x2="268.6" y2="74.2"/>
+    <line class="st4" x1="246.1" y1="120" x2="267.2" y2="73.6"/>
+    <path class="st5" d="M172,35.4l-7.2-2.6s-2.4,22-18.6,22-16.6-22.3-16.6-22.3l-8,2.3"/>
+    <path class="st5" d="M164.8,32.9s-17.7,11.7-35.2-.3"/>
+    <path class="st5" d="M131,41.9s12.9,6.3,31,.3"/>
+    <path class="st5" d="M132.2,44.9s11.4,5.1,28.1.5"/>
+    <path class="st4" d="M146.9,64c24.6-.8,26.1-28.1,26.1-28.1"/>
+    <path class="st4" d="M120.6,34.8s1.6,29.6,26.3,29.2"/>
+    <line class="st4" x1="67.6" y1="119" x2="67.6" y2="246.8"/>
+    <line class="st4" x1="218.9" y1="119" x2="218.9" y2="246.8"/>
+  </g>
+</svg>

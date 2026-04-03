@@ -1,0 +1,1 @@
+UPDATE public.marketing_images SET link_href = '/collections/headwear', updated_at = now() WHERE id = 'f32b9c89-0bcf-487d-8e7b-21b7da6b39bc';

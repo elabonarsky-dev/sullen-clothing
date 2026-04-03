@@ -1,0 +1,1 @@
+UPDATE public.featured_slides SET background_image_url = 'https://smmeufktnfgefknaisrr.supabase.co/storage/v1/object/public/marketing-images/featured-bg/brooks-banner.jpg', updated_at = now() WHERE handle = 'bro_oks';

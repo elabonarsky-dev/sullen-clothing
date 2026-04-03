@@ -1,0 +1,1 @@
+UPDATE public.bundle_configs SET collection_handle = 'delivery-2-march-2026' WHERE id = 'e4cd2b8c-e30b-44fe-9a28-124e99c01140';
